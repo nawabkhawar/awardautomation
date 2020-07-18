@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+       input[type=text], [type=number], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: top;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+    </style>
+
+</head>
+<body>
+    
+<div class="container register">
+            <div class="row">
+                <div class="col-md-12">
+                        <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           <h3 class="register-heading" style="text-align: center;">Award Automation</h3>
+                            <div class="row register-form">
+                                <div class="col-md-12">
+                                    <form method="post" autocomplete="off" name="google-sheet"></form>
+                                        <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Email Address to send Certs</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="toAddress" class="form-control2" placeholder="Email Address to send Certs" value="" required=""/>
+                                            </div>
+                                          </div>
+
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">ClubName</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="clubName" class="form-control2" placeholder="ClubName" value="" required=""/>
+                                            </div>
+                                          </div>
+
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">ClubNumber</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="number" name="clubNumber"  placeholder="ClubNumber" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Area</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="area"  placeholder="Area" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Division</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="division"  placeholder="Division" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">District</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="district" class="form-control3" placeholder="District" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Meeting Number</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="number" name="meetingNumber" class="form-control2" placeholder="Meeting Number" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">First Award Title</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="award1" class="form-control47" placeholder="First Award Title" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Recipient Name</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="recipient1" class="form-control47" placeholder="Recipient Name" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Second Award Title</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="award2" class="form-control47" placeholder="Second Award Title" value="" required=""/>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="col-25">
+                                              <label for="fname">Recipient Name</label>
+                                            </div>
+                                            <div class="col-75">
+                                                <input type="text" name="recipient2" class="form-control47" placeholder="Recipient Name" value="" required=""/>
+                                            </div>
+                                          </div>
+
+
+                                            <div class="row">
+                                                <div class="col-25">
+                                                  <label for="fname">Third Award Title</label>
+                                                </div>
+                                                <div class="col-75">
+                                                    <input type="text" name="award3" class="form-control47" placeholder="Third Award Title" value="" required=""/>
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-25">
+                                                  <label for="fname">Recipient Name</label>
+                                                </div>
+                                                <div class="col-75">
+                                                    <input type="text" name="recipient3" class="form-control47" placeholder="Recipient Name" value="" required=""/>
+                                                </div>
+                                              </div>
+                                              
+                                              <div class="row">
+                                                <div class="col-25">
+                                                  <label for="fname">Fourth Award Title</label>
+                                                </div>
+                                                <div class="col-75">
+                                                    <input type="text" name="award4" class="form-control47" placeholder="Fourth Award Title" value="" required=""/>
+                                                </div>
+                                              </div>
+                                              <div class="row">
+                                                <div class="col-25">
+                                                  <label for="fname">Recipient Name</label>
+                                                </div>
+                                                <div class="col-75">
+                                                    <input type="text" name="recipient4" class="form-control47" placeholder="Recipient Name" value="" required=""/>
+                                                </div>
+                                                </div>
+                                        <div class="form-group2">
+                                            <input type="submit" name="submit" class="btnSubmit btn-block" value="SendMeTheAwards" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+          
+          <script>
+            //const scriptURL = 'https://script.google.com/macros/s/AKfycbzDg2b1A_hOH9IdGn7kFiBrIN_zx2w1UeKidWNL5XGKEU7PgFvb/exec'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxzsoz7oFSzJNaxYgztcjPfpxOY-jbxW-iLLKm2WAbTsoE2FJQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log(response))
+               // .then(console.log(response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nawab's Automation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+            body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* style the container */
+      .container {
+        position: relative;
+        border-radius: 5px;
+        background-color: #284be4;
+        padding: 10px 0 30px 0;
+      }
+      .containerWhite {
+        position: relative;
+        border-radius: 5px;
+        background-color: #f7f09b57;
+        padding: 10px 0 30px 0;
+      }  
+
+      .containerLeft {
+        position: relative;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 10px 0 30px 0;
+      }
+
+      .containerRight {
+        position: relative;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 10px 0 30px 0;
+      } 
+      
+      /* style inputs and link buttons */
+      input,
+      .btn {
+        width: 100%;
+        padding: 4px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+      }
+      
+      input:hover,
+      .btn:hover {
+        opacity: 1;
+      }
+      
+      /* add appropriate colors to fb, twitter and google buttons */
+      .fb {
+        background-color: #3B5998;
+        color: white;
+      }
+      
+      .twitter {
+        background-color: #55ACEE;
+        color: white;
+      }
+      
+      .google {
+        background-color: #dd4b39;
+        color: white;
+      }
+      
+      /* style the submit button */
+     /* input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }*/
+
+      .submit1{
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }
+      .submitYellow{
+        background-color: rgba(250, 43, 16, 0.925);
+        color: white;
+        cursor: pointer;
+      }
+
+     /* input[type=submitYellow] {
+        background-color: rgba(234, 250, 16, 0.925);
+        color: white;
+        cursor: pointer;
+      }*/
+
+      input[type=text] {
+        border-color: black;
+        border-width: 1px;
+        border-top-color: black;
+        outline-color: black;
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 75%;
+        float: center;
+        color: black;
+        cursor: pointer;
+      }
+      input[type=number] {
+        border-color: black;
+        border-width: 1px;
+        border-top-color: black;
+        outline-color: black;
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 75%;
+        float: center;
+        color: black;
+        cursor: pointer;
+      }
+      
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+      
+      /* Two-column layout */
+      .col {
+        float: left;
+        width: 50%;
+        margin: auto;
+        padding: 0 50px;
+        margin-top: 6px;
+      }
+      .col100 {
+        float: left;
+        width: 50%;
+        margin: auto;
+        padding: 0 50px;
+        margin-top: 6px;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* vertical line */
+      .vl {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        border: 2px solid #ddd;
+        height: 175px;
+      }
+      
+      /* text inside the vertical line */
+      .vl-innertext {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        padding: 8px 10px;
+      }
+      
+      /* hide some text on medium and large screens */
+      .hide-md-lg {
+        display: none;
+      }
+      
+      /* bottom container */
+      .bottom-container {
+        text-align: right;
+        
+        border-radius: 0px 0px 4px 4px;
+        padding : 20px 20px 0px 0px;
+      }
+      
+      /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 650px) {
+        .col {
+          width: 100%;
+          margin-top: 0;
+        }
+        /* hide the vertical line */
+        .vl {
+          display: none;
+        }
+        /* show the hidden text on small screens */
+        .hide-md-lg {
+          display: block;
+          text-align: center;
+        }
+      }
+
+      /* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(https://smallenvelop.com/wp-content/uploads/2014/08/Preloader_11.gif) center no-repeat #fff;
+}
+    </style>
+
+</head>
+<body>
+  <div class="">
+  <h2 style="text-align: center;">Nawab Khawar's - Club Certificate Generator - Get Certificates in Email</h2>
+      
+      
+      <!--<p>Resize the browser window to see the responsive effect. When the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other.</p>-->
+      
+      <div style="padding-left: 15%;"><input type="text" name="nawab-search" id="nawab-search" style="text-align: center;width: 80%;" placeholder="Enter Your Club Name here, if District 92, this field will autopopulate, the club Details" required></div>
+      <h6 style="text-align: center;">(Enter Your Club Name here, if District 92 - we will Automate and fill the club details just by your club name - the certs will be mailed to you)
+        <p style="text-align: center;">(Clubs outside District92, fill the fields yourself without Automation, Feedback/Request automation - DTMNawabKhawar@gmail.com)</p>
+        <div id="filter-records"></div>
+      
+    
+        <div class="se-pre-con"></div>
+            
+                
+      <div class="container">
+                                    <form method="post" autocomplete="off" name="google-sheet">
+                                      
+                                     <div class ="row">
+                                      <div class="col" style="padding-left: 60px; padding-top: 35px;">
+                                        <div class="containerLeft">
+                                      <div style="text-align: center;">Club Email</div>
+                                      <div style="padding-left: 20%;">  <input type="text" name="toAddress" id="toAddress" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                      <div style="text-align: center;">Club Name</div>
+                                        
+                                      <div style="padding-left: 20%;">    
+                                        <input type="text" name="clubName" id="clubName" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                      <div style="text-align: center;">Club Number</div> 
+                                      <div style="padding-left: 20%;"><input type="number" id="clubNumber" name="clubNumber" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                        
+                                        
+                                      <div style="text-align: center;">Area</div> 
+                                      <div style="padding-left: 20%;"><input type="text" name="area" id="area" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                      
+                                      
+                                        <div style="text-align: center;">Division</div> 
+                                        <div style="padding-left: 20%;"><input type="text" name="division" id="division" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                    
+                                    
+                                      <div style="text-align: center;">District</div> 
+                                      <div style="padding-left: 20%;"><input type="text" name="district" id="district" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                  
+                                  
+                                    <div style="text-align: center;">Meeting Number</div> 
+                                    <div style="padding-left: 20%;"><input type="number" name="meetingNumber" class="form-control" placeholder="" style="text-align: center;" value="" required=""/></div>
+                                      </div>
+                                      
+                                    
+                                    
+                                    
+                                    </div>
+                                  <div class= "col" style="padding-right: 60px;">
+                                  
+                                  <div class = "containerRight">
+                                  <div style="text-align: center;">First Award Title</div> 
+                                  <div style="padding-left: 20%;"><input type="text" name="award1" class="form-control" placeholder="" style="text-align: center;" value="Best Prepared Speaker" required=""/></div>
+                              
+                              
+                                <div style="text-align: center;">Recipient Name</div> 
+                                <div style="padding-left: 20%;"><input type="text" name="recipient1" class="form-control" placeholder="" style="text-align: center;"value="" required=""/></div>
+                            
+                            
+                                <div style="text-align: center;">Second Award Title</div> 
+                                <div style="padding-left: 20%;"><input type="text" name="award2" class="form-control" placeholder="" style="text-align: center;" value="Best Table Topics Speaker" required=""/></div>
+                            
+                            
+                              <div style="text-align: center;">Recipient Name</div> 
+                              <div style="padding-left: 20%;"><input type="text" name="recipient2" class="form-control" placeholder="" style="text-align: center;"value="" required=""/></div>
+                          
+                          
+                            <div style="text-align: center;">Third Award Title</div> 
+                            <div style="padding-left: 20%;"><input type="text" name="award3" class="form-control" placeholder="" value="Best Role Taker"  style="text-align: center;" required=""/></div>
+                        
+                        
+                          <div style="text-align: center;">Recipient Name</div> 
+                          <div style="padding-left: 20%;"><input type="text" name="recipient3" class="form-control" placeholder="" style="text-align: center;"value="" required=""/></div>
+                      
+                      
+                        <div style="text-align: center;">Fourth Award Title</div> 
+                        <div style="padding-left: 20%;"><input type="text" name="award4" class="form-control" placeholder="" value="Best Evaluator" style="text-align: center;" /></div>
+                    
+                    
+                      <div style="text-align: center;">Recipient Name</div> 
+                      <div style="padding-left: 20%;"><input type="text" name="recipient4" class="form-control" placeholder="" style="text-align: center;"value="" /></div>
+                    </div>
+                  </div>
+                </div>
+              
+                  
+                            
+                                        <div class="bottom-container">
+                                            <input type="submit" name="submit" id ="submit" class="submit1" style="width: 1100px; height: 50px;" value="Email Me The Awards" />
+                                        </div>
+                                    </form>
+                                
+            </div>
+        </div>
+      </div>
+          
+          <script>
+            //const scriptURL = 'https://script.google.com/macros/s/AKfycbzDg2b1A_hOH9IdGn7kFiBrIN_zx2w1UeKidWNL5XGKEU7PgFvb/exec'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxzsoz7oFSzJNaxYgztcjPfpxOY-jbxW-iLLKm2WAbTsoE2FJQ/exec'
+            const form = document.forms['google-sheet']
+            
+            form.addEventListener('submit', e => {
+              alert('Wait for Info on the Button(30seconds) - An email confirmation will come there');
+             // $(".se-pre-con").show("slow");;
+             $('#submit').val('Wait for Info on the Button(30seconds) - An email confirmation will come here') ;
+             $('#submit').removeClass('submit1').addClass('submitYellow') ;
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert('An Email was Sent on the Email Id provided(Reload Page to Start Again or Search Club To Begin)'))
+                .then(response => $('#submit').val('An Email was Sent on the Email Id provided(Reload Page to Start Again or Search Club To Begin)'))
+                .then(response => $('#submit').removeClass('submitYellow').addClass('submit1'))/*.then(response => setTimeout(function(){
+                  $('#submit').val('Email Me The Awards') ;
+      }, 5000)
+)*/
+               // .then(console.log(response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+          <script>
+            data="";
+  $(document).ready(function(){
+    $(".se-pre-con").fadeOut("slow");;
+   loadCharacters();
+	
+   // var data = [
+//{"id":"1","employee_name":"Tiger Nixon","employee_salary":"320800","employee_age":"61","profile_image":"default_profile.png"},{"id":"2","employee_name":"Garrett Winters","employee_salary":"434343","employee_age":"63","profile_image":"default_profile.png"},{"id":"3","employee_name":"Ashton Cox","employee_salary":"86000","employee_age":"66","profile_image":"default_profile.png"},{"id":"4","employee_name":"Cedric Kelly","employee_salary":"433060","employee_age":"22","profile_image":"default_profile.png"},{"id":"5","employee_name":"Airi Satou","employee_salary":"162700","employee_age":"33","profile_image":"default_profile.png"},{"id":"6","employee_name":"Brielle Williamson","employee_salary":"372000","employee_age":"61","profile_image":"default_profile.png"},{"id":"7","employee_name":"Herrod Chandler","employee_salary":"137500","employee_age":"59","profile_image":"default_profile.png"},{"id":"8","employee_name":"Rhona Davidson","employee_salary":"327900","employee_age":"55","profile_image":"default_profile.png"},{"id":"9","employee_name":"Colleen Hurst","employee_salary":"205500","employee_age":"39","profile_image":"default_profile.png"},{"id":"10","employee_name":"Sonya Frost","employee_salary":"103600","employee_age":"23","profile_image":"default_profile.png"}];
+
+	$('#nawab-search').keyup(function(){
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#toAddress').val('') ;
+          $('#clubName').val('') ;
+          $('#clubNumber').val('') ;
+          $('#area').val('') ;
+          $('#division').val('') ;
+          $('#district').val('') ;
+          $('#submit').val('Email Me The Awards') ;
+				return;
+			}
+			
+      var regex = new RegExp(searchField, "i");
+      $('#submit').val('Email Me The Awards') ;
+      var clubEmail="";
+      var clubName="";
+      var clubNumber="";
+      var clubArea="";
+      var clubDivision="";
+      var clubDistrict="";
+      
+				
+            
+			  $.each(data, function(key, val){
+          var count = 0;
+				if (val.Clubname.search(regex) != -1)
+				 {
+          count++;
+           //count++;
+          if(count==1){
+            clubEmail = val.Clubemail;
+            clubName = val.Clubname;
+            clubNumber = val.Club;
+            clubArea = val.Area;
+            clubDivision = val.Division;
+            clubDistrict = val.District;
+          
+          }
+				}
+        
+			  });
+          $('#toAddress').val(clubEmail) ;
+          $('#clubName').val(clubName) ;
+          $('#clubNumber').val(clubNumber) ;
+          $('#area').val(clubArea) ;
+          $('#division').val(clubDivision) ;
+          $('#district').val(clubDistrict) ;
+        });
+  });
+
+  const loadCharacters = async () => {
+    try {
+        //const res = await fetch('http://localhost:8080/nawabClubSearch/getAllClubs');
+        const res = await fetch('http://nawabkhawar.tech:8080/nawab-clubs-1/nawabClubSearch/getAllClubs');
+        data = await res.json();
+       // displayCharacters(hpCharacters);
+    } catch (err) {
+        console.error(err);
+    }
+};
+          </script>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="js/main.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+</body>
+</html>

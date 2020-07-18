@@ -1,0 +1,167 @@
+
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <title>Nawab's club search</title>
+  <meta charset="UTF-8">
+  <style>
+	  table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+  </style>
+<!--===============================================================================================-->	
+
+<!--===============================================================================================-->
+
+
+</head>
+<body>
+	<a href="manager/html">manager webapp</a><a href="host-manager/html">host-manager webapp</a>
+	<h1 style="text-align:center;">Nawab's Club Search</h1>
+	<h6 style="text-align:center;">(theindiannawab@gmail.com/9873895091)</h3>
+	<div id="header"></div>
+	
+	<form role="form">
+        <div class="form-group" style="align-content: center;">
+         <input type="input"  class="form-control center-block" id="txt-search" placeholder="Type club number, clubname, time, day of meeting , location to search" style="width: 1400px; text-align:center;">
+		</div>
+		<h5 style="text-align:center;">(Type anything - Club number, Clubname, Time, Day of Meeting, Zipcode, Address & see the magic)</h5>
+		<br/>
+	
+	</form>
+	<div id="filter-records"></div>
+	<div id="footer"></div>
+  </div>
+
+
+<!--===============================================================================================-->	
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+	data="";
+  $(document).ready(function(){
+
+   loadCharacters();
+	
+   // var data = [
+//{"id":"1","employee_name":"Tiger Nixon","employee_salary":"320800","employee_age":"61","profile_image":"default_profile.png"},{"id":"2","employee_name":"Garrett Winters","employee_salary":"434343","employee_age":"63","profile_image":"default_profile.png"},{"id":"3","employee_name":"Ashton Cox","employee_salary":"86000","employee_age":"66","profile_image":"default_profile.png"},{"id":"4","employee_name":"Cedric Kelly","employee_salary":"433060","employee_age":"22","profile_image":"default_profile.png"},{"id":"5","employee_name":"Airi Satou","employee_salary":"162700","employee_age":"33","profile_image":"default_profile.png"},{"id":"6","employee_name":"Brielle Williamson","employee_salary":"372000","employee_age":"61","profile_image":"default_profile.png"},{"id":"7","employee_name":"Herrod Chandler","employee_salary":"137500","employee_age":"59","profile_image":"default_profile.png"},{"id":"8","employee_name":"Rhona Davidson","employee_salary":"327900","employee_age":"55","profile_image":"default_profile.png"},{"id":"9","employee_name":"Colleen Hurst","employee_salary":"205500","employee_age":"39","profile_image":"default_profile.png"},{"id":"10","employee_name":"Sonya Frost","employee_salary":"103600","employee_age":"23","profile_image":"default_profile.png"}];
+
+	$('#txt-search').keyup(function(){
+            var searchField = $(this).val();
+			if(searchField === '')  {
+				$('#filter-records').html('');
+				return;
+			}
+			
+            var regex = new RegExp(searchField, "i");
+
+			var	output = '<table style="text-align:left">';
+				  output += '<tr> <td>' + 'Club Number' + '</td>';
+				  output += '<td>' + 'Division' + '</td>'
+				  output += '<td>' + 'Area' + '</td>'
+				  output += '<td>' + 'ClubName' + '</td>'
+				  output += '<td>' + 'ClubEstablished' + '</td>'
+				  output += '<td>' + 'ClubsStatus' + '</td>'
+				  output += '<td>' + 'ClubAddress1' + '</td>'
+				  output += '<td>' + 'ClubAddress2' + '</td>'
+				  output += '<td>' + 'Club City' + '</td>'
+				  output += '<td>' + 'Club Zip' + '</td>'
+				  output += '<td>' + 'Club Phone' + '</td>'
+				  output += '<td>' + 'Club Day0' + '</td>'
+				  output += '<td>' + 'Club Time0' + '</td>'
+				  output += '<td>' + 'Club Day' + '</td>'
+				  output += '<td>' + 'Club Time' + '</td>'
+				  output += '<td>' + 'Club Url1' + '</td>'
+				  output += '<td>' + 'Club Url2' + '</td>'
+				  output += '<td>' + 'Club Email' + '</td>'
+				
+            var count = 1;
+			  $.each(data, function(key, val){
+				 // console.log(val);
+				if ((val.Club.search(regex) != -1) || 
+				(val.Division.search(regex) != -1) || 
+				(val.Area.search(regex) != -1) || 
+				(val.Clubname.search(regex) != -1) || 
+				(val.Clubaddr1.search(regex) != -1) || 
+				(val.Clubaddr2.search(regex) != -1) || 
+				(val.Clubcity.search(regex) != -1) || 
+				(val.Clubzip.search(regex) != -1) || 
+				(val.Clubphone.search(regex) != -1) || 
+				(val.Clubday_o.search(regex) != -1) || 
+				(val.Clubtime_o.search(regex) != -1)||
+				(val.Clubday_o.search(regex) != -1) || 
+				(val.Clubday.search(regex) != -1) || 
+				(val.Clubtime.search(regex) != -1)
+				) {
+				  output += '</tr>';
+				  //output += '<div class="col-md-3"><img class="img-responsive" src="'+val.profile_image+'" alt="'+ val.employee_name +'" /></div>';
+				  output += '<tr> <td>' + val.Club + '</td>';
+				  output += '<td>' + val.Division+ '</td>'
+				  output += '<td>' + val.Area + '</td>'
+				  output += '<td>' + val.Clubname + '</td>'
+				  output += '<td>' + val.Clubest + '</td>'
+				  output += '<td>' + val.Clubstatus + '</td>'
+				  output += '<td>' + val.Clubaddr1 + '</td>'
+				  output += '<td>' + val.Clubaddr2 + '</td>'
+				  output += '<td>' + val.Clubcity + '</td>'
+				  output += '<td>' + val.Clubzip + '</td>'
+				  output += '<td>' + val.Clubphone + '</td>'
+				  output += '<td>' + val.Clubday_o + '</td>'
+				  output += '<td>' + val.Clubtime_o + '</td>'
+				  output += '<td>' + val.Clubday + '</td>'
+				  output += '<td>' + val.Clubtime + '</td>'
+				  output += '<td>' + val.Cluburl1 + '</td>'
+				  output += '<td>' + val.Cluburl2 + '</td>'
+				  output += '<td>' + val.Clubemail + '</td>'
+
+				  
+				  if(count%2 == 0){
+					output += '</div><div class="row">'
+				  }
+				  count++;
+				}
+			  });
+			  output += '</table>';
+
+			  $('#filter-records').html(output);
+        });
+  });
+
+  const loadCharacters = async () => {
+    try {
+        //const res = await fetch('http://localhost:8080/nawabClubSearch/getAllClubs');
+        const res = await fetch('http://nawabkhawar.tech:8080/nawab-clubs-1/nawabClubSearch/getAllClubs');
+        data = await res.json();
+       // displayCharacters(hpCharacters);
+    } catch (err) {
+        console.error(err);
+    }
+};
+  
+  
+</script>

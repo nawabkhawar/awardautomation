@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* style the container */
+      .container {
+        position: relative;
+        border-radius: 5px;
+        background-color: #284be4;
+        padding: 10px 0 30px 0;
+      } 
+
+      .containerLeft {
+        position: relative;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 10px 0 30px 0;
+      }
+
+      .containerRight {
+        position: relative;
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 10px 0 30px 0;
+      } 
+      
+      /* style inputs and link buttons */
+      input,
+      .btn {
+        width: 100%;
+        padding: 4px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+      }
+      
+      input:hover,
+      .btn:hover {
+        opacity: 1;
+      }
+      
+      /* add appropriate colors to fb, twitter and google buttons */
+      .fb {
+        background-color: #3B5998;
+        color: white;
+      }
+      
+      .twitter {
+        background-color: #55ACEE;
+        color: white;
+      }
+      
+      .google {
+        background-color: #dd4b39;
+        color: white;
+      }
+      
+      /* style the submit button */
+      input[type=submit] {
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }
+      input[type=text] {
+        border-color: black;
+        border-width: 1px;
+        border-top-color: black;
+        outline-color: black;
+        border: 1px solid black;
+        border-radius: 4px;
+        width: 75%;
+        float: center;
+        color: black;
+        cursor: pointer;
+      }
+      
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+      
+      /* Two-column layout */
+      .col {
+        float: left;
+        width: 50%;
+        margin: auto;
+        padding: 0 50px;
+        margin-top: 6px;
+      }
+      .col100 {
+        float: left;
+        width: 50%;
+        margin: auto;
+        padding: 0 50px;
+        margin-top: 6px;
+      }
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* vertical line */
+      .vl {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        border: 2px solid #ddd;
+        height: 175px;
+      }
+      
+      /* text inside the vertical line */
+      .vl-innertext {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        padding: 8px 10px;
+      }
+      
+      /* hide some text on medium and large screens */
+      .hide-md-lg {
+        display: none;
+      }
+      
+      /* bottom container */
+      .bottom-container {
+        text-align: right;
+        background-color: #666;
+        border-radius: 0px 0px 4px 4px;
+      }
+      
+      /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 650px) {
+        .col {
+          width: 100%;
+          margin-top: 0;
+        }
+        /* hide the vertical line */
+        .vl {
+          display: none;
+        }
+        /* show the hidden text on small screens */
+        .hide-md-lg {
+          display: block;
+          text-align: center;
+        }
+      }
+      </style>
+      </head>
+      <body>
+      
+      <h1 style="text-align: center;">Nawab Khawar's Club Award Generator</h1>
+      
+      
+      <!--<p>Resize the browser window to see the responsive effect. When the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other.</p>-->
+      <h3 style="text-align: center;">Enter Your Club Name here, if District 92, this field will autopopulate, the club Details</h3>
+      <div style="padding-left: 20%;"><input type="text" name="username" style="text-align: center;width: 80%;" placeholder="Enter Your Club Name here, if District 92, this field will autopopulate, the club Details" required></div>
+      
+      <div class="container">
+        <form method="post" autocomplete="off" name="google-sheet">
+          <div class="row">
+            <!--<h2 style="text-align:center">Login with Social Media or Manually</h2> -->
+            
+      
+            <div class="col">
+              <div class="containerLeft">
+              <h3 style="text-align:center">Enter Club Details</h3>
+              <div style="text-align: center;">Club Email</div>
+              <div style="padding-left: 20%;"><input type="text" name="toAddress" style="text-align: center; " placeholder="Mail ID to send Certs(can be changed)" required></div>
+              <div style="text-align: center;">Club Name</div>
+              <div style="padding-left: 20%;"><input type="text" name="clubName" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Club Number</div>
+              <div style="padding-left: 20%;"><input type="text" name="clubNumber" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Area</div>
+              <div style="padding-left: 20%;"><input type="text" name="area" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Division</div>
+              <div style="padding-left: 20%;"><input type="text" name="division" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">District</div>
+              <div style="padding-left: 20%;"><input type="text" name="district" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Meeting Number</div>
+              <div style="padding-left: 20%;"><input type="text" name="meetingNumber" style="text-align: center; " placeholder="" required></div>
+              
+            
+                </div>
+            </div>
+      
+            <div class="col">
+            <div class="containerRight">
+              <div class="hide-md-lg">
+                <p>Or sign in manually:</p>
+              </div>
+              <h3 style="text-align:center">Enter Award Details</h3>
+              <div style="text-align: center;">First Award Title</div>
+              <div style="padding-left: 20%;"><input type="text" name="award1" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Recipient Name</div>
+              <div style="padding-left: 20%;"><input type="text" name="recipient1" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Second Award Title</div>
+              <div style="padding-left: 20%;"><input type="text" name="award2" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Recipient Name</div>
+              <div style="padding-left: 20%;"><input type="text" name="recipient2" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Third Award Title</div>
+              <div style="padding-left: 20%;"><input type="text" name="award3" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Recipient Name</div>
+              <div style="padding-left: 20%;"><input type="text" name="recipient3" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Fourth Award Title</div>
+              <div style="padding-left: 20%;"><input type="text" name="award4" style="text-align: center; " placeholder="" required></div>
+              <div style="text-align: center;">Recipient Name</div>
+              <div style="padding-left: 20%;"><input type="text" name="recipient4" style="text-align: center; " placeholder="" required></div>
+
+              
+              
+            </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="bottom-container">
+      </div>
+      <input type="submit" name="submit" class="btnSubmit btn-block" value="SendMeTheAwards" />    
+
+          
+          <script>
+            //const scriptURL = 'https://script.google.com/macros/s/AKfycbzDg2b1A_hOH9IdGn7kFiBrIN_zx2w1UeKidWNL5XGKEU7PgFvb/exec'
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxzsoz7oFSzJNaxYgztcjPfpxOY-jbxW-iLLKm2WAbTsoE2FJQ/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log(response))
+               // .then(console.log(response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>
